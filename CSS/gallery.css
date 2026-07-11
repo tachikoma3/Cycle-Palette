@@ -1,0 +1,69 @@
+/* ==========================================================================
+   ベーススタイル（デスクトップ・PC向け）
+   ========================================================================== */
+
+.gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: center;
+  gap: 2rem;
+  width: min(1200px, 90%);
+  margin: 2rem auto;
+}
+
+.gallery {
+  margin-left: 14%; /* PC向けの余白 */
+  margin-top: 1%;
+  font-size: large;
+}
+
+.gallery-thumbnails-img {
+  width: min(300px, 90vw);
+  height: auto;
+}
+
+/* ==========================================================================
+   1. タブレット向け（画面幅 1024px 以下）
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .gallery-thumbnails {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 92%;
+  }
+
+  .gallery-thumbnails img {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   2. スマートフォン全体向け（画面幅 768px 以下）
+   ========================================================================== */
+@media (max-width: 768px) {
+  .gallery-thumbnails {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    width: 92%;
+  }
+
+  .gallery-thumbnails img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* iPhone 横向き対応 */
+@media screen and (max-width: 932px) and (orientation: landscape) {
+  .gallery-thumbnails {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 95%;
+  }
+
+  .gallery-thumbnails img {
+    width: 100%;
+    max-width: none;
+  }
+}

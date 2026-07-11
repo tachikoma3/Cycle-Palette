@@ -1,0 +1,97 @@
+/* ===== 軽量グローバルリセット ===== */
+
+/* すべての要素をフラットに */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* テキストサイズ自動調整を抑制 */
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-size: 16px; /* 基準フォントサイズ */
+}
+
+/* ボディ */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f4f4f4;
+  color: #000;
+  min-height: 100vh;
+  overflow-x: hidden; /* 横スクロール防止 */
+  font-size: clamp(14px, 1rem, 18px); /* 最小14px、通常16px、最大18px */
+}
+
+/* 見出し・段落 */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* リスト */
+ul, ol {
+  list-style: none;
+}
+
+/* 画像レスポンシブ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+/* ボタン・フォーム */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+button {
+  cursor: pointer;
+}
+
+/* リンク */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* セクションの調整 */
+section {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden; /* モバイルで横ズレ防止 */
+}
+
+/* ===== レスポンシブでのフォント制御 ===== */
+
+/* タブレット（768px以下） */
+@media (max-width: 768px) {
+  body {
+    font-size: clamp(14px, 2.2vw, 16px);
+  }
+}
+
+/* スマホ（480px以下） */
+@media (max-width: 480px) {
+  body {
+    font-size: clamp(14px, 3.5vw, 15px);
+  }
+}

@@ -1,0 +1,260 @@
+/* ========================================
+   Modal Variables
+======================================== */
+
+:root {
+  --modal-backdrop: rgba(15, 23, 42, 0.75);
+  --modal-surface: rgba(255, 255, 255, 0.92);
+  --modal-text: #172033;
+  --modal-muted: #667085;
+  --modal-border: rgba(255, 255, 255, 0.35);
+  --modal-focus: #2563eb;
+}
+
+/* ========================================
+   Root
+======================================== */
+
+.app-modal-root {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  width: 100vw;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 16px;
+
+  &.is-open {
+    display: grid;
+    place-items: center;
+  }
+}
+
+body.app-modal-locked {
+  overflow: hidden;
+}
+
+/* ========================================
+   Backdrop
+======================================== */
+
+.app-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background: var(--modal-backdrop);
+  backdrop-filter: blur(4px);
+}
+
+/* ========================================
+   Dialog
+======================================== */
+
+.app-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(1000px, 90vw);
+  max-height: min(90vh, 920px);
+  overflow: hidden;
+  color: var(--modal-text);
+  background: var(--modal-surface);
+  border: 1px solid var(--modal-border);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  backdrop-filter: blur(12px);
+}
+
+.app-modal-root.is-visible {
+  .app-modal-dialog {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 260ms ease, transform 260ms ease;
+  }
+}
+
+/* ========================================
+   Header
+======================================== */
+
+.app-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // gap: 16px;
+  // padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(232, 237, 244, 0.8);
+  background-color: none;
+}
+
+.app-modal-title {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+.app-modal-close {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  padding: 0;
+  color: var(--modal-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+
+  &:hover {
+    color: var(--modal-text);
+    background: rgba(255, 255, 255, 0.62);
+  }
+}
+
+.app-modal-close:focus-visible,
+.app-modal-dialog:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.3);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Body
+======================================== */
+
+.app-modal-body {
+  max-height: calc(90vh - 84px);
+  overflow: auto;
+  padding: 1.5rem;
+}
+
+/* ========================================
+   Image + Comment Layout
+======================================== */
+
+.image-comment {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(260px, 400px);
+  gap: 2rem;
+  align-items: start;
+}
+
+.image-comment-media {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #eef2f7;
+  border: 1px solid var(--modal-panel-border);
+  border-radius: 12px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+}
+
+.image-comment-text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  // background: var(--modal-panel);
+  border: 1px solid var(--modal-panel-border);
+  border-radius: 12px;
+}
+
+.image-comment-text h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.image-comment-text pre {
+  margin: 0;
+  color: #344054;
+  font-size: 16px;
+  line-height: 1.8;
+  white-space-collapse: preserve;
+  overflow-wrap: normal;
+}
+
+/* ボタンを囲むコンテナの余白 */
+.image-comment-action {
+    margin-top: 20px;
+    text-align: left; /* 左寄せ（中央寄せにしたい場合は center ） */
+}
+
+/* リンクボタン本体のデザイン（お好みの色に調整してください） */
+.app-modal-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333333; /* ボタンの背景色 */
+    color: #ffffff !important;  /* 文字の色 */
+    text-decoration: none;
+    border-radius: 4px;         /* 角丸 */
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+/* ボタンにマウスを乗せたときの変化 */
+// .app-modal-btn:hover {
+//     background-color: #555555; /* ホバー時の背景色 */
+//     text-decoration: none;
+// }
+
+.image-credit {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #777;
+
+  a {
+    color: #4a90e2;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 768px) {
+  .app-modal-root {
+    padding: 10px;
+  }
+
+  .app-modal-dialog {
+    width: 100%;
+    max-height: calc(100vh - 20px);
+    border-radius: 16px;
+  }
+
+  .app-modal-header {
+    padding: 1rem;
+  }
+
+  .app-modal-body {
+    max-height: calc(100vh - 92px);
+    padding: 1rem;
+  }
+
+  .image-comment {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
