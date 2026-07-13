@@ -1,0 +1,186 @@
+/*////////////////////////////////////////////////////
+                      共通設定
+///////////////////////////////////////////////////*/
+
+
+.insurance-card h3{
+
+    font-size:1.5rem;
+
+    text-align:center;
+
+    margin-bottom:1.5rem;
+
+}
+
+.section-title {
+  font-size: clamp(2rem, 1.8vw, 2.8rem);
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  line-height: 1.4;
+
+  /* コンテンツとの余白 */
+  margin-bottom: 1.8rem;
+}
+
+.insurance {
+  padding: 8rem 0;
+}
+
+.insurance__inner{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
+    gap:3rem;
+    max-width:1200px;
+    margin:4rem auto 0;
+}
+
+.insurance__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-left: 10%;
+}
+
+.insurance-card {
+  position:relative;
+  
+  overflow:hidden;
+  
+  background: #fff;
+
+  border-radius: 20px;
+
+  padding: 2rem;
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.06);
+
+  transition: .35s;
+}
+
+.insurance-card:hover{
+
+    transform: translateY(-8px);
+
+    box-shadow:
+      0 18px 40px rgba(0,0,0,.12);
+
+}
+
+.insurance-card ul{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.8rem;
+
+    margin-bottom:2rem;
+
+}
+
+.insurance-card li{
+
+    list-style:none;
+    position:relative;
+    padding-left:1.4rem;
+
+}
+
+.insurance-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    background:rgba(138,200,177,.15);
+
+    border-radius:50%;
+
+    top:-90px;
+    left:-90px;
+
+}
+
+.insurance-item{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    aspect-ratio:4/5;
+
+    height:460px;
+
+    border-radius:24px;
+}
+
+.insurance-item:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.insurance-item:hover .insurance-overlay{
+
+    opacity:1;
+
+}
+
+.insurance-item img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.footer__copyright{
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+
+    border-top: 1px solid rgba(0,0,0,.08);
+
+    text-align: center;
+}
+
+.footer__copyright p{
+    margin: 0;
+    font-size: .85rem;
+    color: #777;
+}
+
+.footer__copyright small{
+    display: block;
+    margin-top: .4rem;
+
+    font-size: .85rem;
+    color: #777;
+}
+
+/* ==========================================================================
+   2. スマートフォン全体向け（画面幅 768px 以下）
+   ========================================================================== */
+
+@media(max-width:768px){
+
+.insurance__cards{
+
+grid-template-columns:1fr;
+
+}
+
+}
