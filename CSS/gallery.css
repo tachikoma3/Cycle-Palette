@@ -25,6 +25,19 @@
   padding-inline: 20%;
 }
 
+.gallery-thumbnails-img:hover{
+
+    transform:scale(1.08);
+
+}
+
+.gallery-thumbnails-img:hover .gallery-thumbnails-img-overlay{
+
+    opacity:1;
+
+}
+
+
 /* ==========================================================================
    1. タブレット向け（画面幅 1024px 以下）
    ========================================================================== */

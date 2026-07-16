@@ -44,11 +44,35 @@
   padding-inline: 20%;
 }
 
+.safety-img:hover{
+
+    transform:scale(1.08);
+
+}
+
+.safety-img:hover .safety-img-overlay{
+
+    opacity:1;
+
+}
+
+
 .apparel-img {
   margin-left: -40%;
   width: min(300px, 90vw);
   height: auto;
   padding-inline: 10%;
+}
+
+.apparel-img:hover{
+
+    transform:scale(1.08);
+
+}
+
+.apparel-img:hover .apparel-img-overlay{
+
+    opacity:1;
 
 }
 
