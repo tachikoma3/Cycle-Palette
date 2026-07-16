@@ -1,0 +1,37 @@
+// DOMが完全に読み込まれてから処理を開始
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ScrollTriggerプラグインを有効化
+  gsap.registerPlugin(ScrollTrigger);
+
+  // =========================================
+  // 画像が下からランダムな順番でポップアップする演出（共通関数）
+  // =========================================
+  function revealImagesFromBelow(sectionId, imageSelector) {
+    gsap.from(`${sectionId} ${imageSelector}`, {
+      y: 60,
+      autoAlpha: 0,
+      duration: 0.7,
+      stagger: {
+        each: 0.12,
+        from: "random" // 並び順ではなく、ランダムな順番で出現させる
+      },
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: sectionId,
+        start: "top 75%",
+        once: true
+      }
+    });
+  }
+
+  // 安全装備・アクセサリー（.bg-safety内の.safety-img）
+  revealImagesFromBelow(".bg-safety", ".safety-img .open-image-comment");
+
+  // アパレル・ファッション カジュアル（.bg-apparel内の.apparel-img）
+  revealImagesFromBelow(".bg-apparel", ".apparel-img .open-image-comment");
+
+  // アパレル・ファッション ビジネス（.bg-business内の.gallery-thumbnails-img）
+  revealImagesFromBelow(".bg-business", ".gallery-thumbnails-img .open-image-comment");
+
+});

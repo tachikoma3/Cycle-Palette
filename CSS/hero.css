@@ -5,9 +5,10 @@
 /*////////////////////////////////////////////////////
                       共通設定
 ///////////////////////////////////////////////////*/
+
+
 body { 
       background-color: #ffffff;
-      justify-content: center;
       }
 
 h1, h2, h3, h4 {
@@ -23,15 +24,6 @@ h1, h2, h3, h4 {
     font-size: smaller;
     margin-left: 4px;
   }
-
-  hr {
-  gap: 0 40px;
-  width:100%;
-  border-style: none;
-  padding: 26px 0;
-  margin-top: 20px;
-}
-
 
 /*/////////////////////////////////////////////////
                 ヘッダー＆メニュー
@@ -109,20 +101,45 @@ h1, h2, h3, h4 {
       .hero-main {
         display: grid;
         grid-template-columns: repeat(2, 50%);
+        gap: 2rem;
         justify-content: center;
         align-items: center;
         width: 100%;
-        margin: 2% -12%;
+        margin: 0 -12%;
         background:
           radial-gradient(ellipse 4rem 1rem at 20% 65%, #09926b41, #38c09941, #88ecd041, transparent 500%);
         overflow: hidden;
         padding-inline: 12%;
       }
 
-      .hero-main p {
+    .hero-main p {
         margin-left: 10%;
         font-size: medium;
       }
+
+    .hero-heading {
+    line-height: 1.8;
+    margin: 0 0 20px;
+    }
+
+  .hero-lead {
+    max-width: 460px;
+    line-height: 1.9;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0 0 48px;
+  }
+
+  .hero-image-wrap {
+    width: min(560px, 88vw);
+    overflow: hidden; /* ← 画像を左からスライドインさせるためのマスク */
+    border-radius: 4px;
+  }
+
+
+        .hero-heading .char { display: inline-block; will-change: transform; }
+        .hero-lead .char { display: inline-block; will-change: transform; }
+
 
       button {
         min-height: 40px;
@@ -137,17 +154,18 @@ h1, h2, h3, h4 {
 .modal-img {
   text-align: center;
   margin-top: 20px;
-  margin-right: 20%;
   cursor: pointer;
+  overflow: hidden; /* 画像スライドインのマスクも兼ねる */
 }
 
 .modal-img img {
-  width: 90%;
-  max-width: 100%;
-  margin-left: 40%;
   height: auto;
   border-radius: 12px;
   cursor: pointer;
+  /* width と margin-left はここでは指定しない。
+     .hero-image-wrap 側の width: min(560px, 88vw) を優先させるため。
+     以前の width:90% + margin-left:40% (合計130%) が overflow-x:hidden で
+     右側30%クリップされ「画像が半分消える」原因になっていた */
 }
 
 @media screen and (max-width: 768px) {

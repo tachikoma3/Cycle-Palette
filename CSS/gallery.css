@@ -22,6 +22,7 @@
 .gallery-thumbnails-img {
   width: min(300px, 90vw);
   height: auto;
+  padding-inline: 20%;
 }
 
 /* ==========================================================================
