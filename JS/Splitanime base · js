@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: sectionId,
-        start: "top 75%",
+        start: "top 60%",
         once: true
       }
     });

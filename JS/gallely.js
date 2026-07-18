@@ -13,7 +13,7 @@
   gsap.from(".gallery-thumbnails li", {
     scrollTrigger: {
       trigger: ".gallery-thumbnails",
-      start: "top 85%",
+      start: "top 65%",
       toggleActions: "play none none none"
     },
     y: 40,
