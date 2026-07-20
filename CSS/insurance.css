@@ -179,7 +179,7 @@
 
 .insurance__cards{
 
-grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
 }
 

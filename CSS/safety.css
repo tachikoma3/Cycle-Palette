@@ -108,9 +108,8 @@
   }
   
   .safety {
-    margin-left: 0; /* 縦並びのため左マージンをリセット */
+    margin-left: 10%; /* 縦並びのため左マージンをリセット */
     margin-top: 0;
-    text-align: center; /* 必要に応じてテキストを中央寄せ */
   }
   
   .safety-img {
